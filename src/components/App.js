@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
+import HomeScreen from './HomeScreen';
+
 export default function App() {
   return (
-    <AppContainer></AppContainer>
+    <AppContainer>
+      <HomeScreen />
+    </AppContainer>
   );
 }
 
