@@ -97,6 +97,7 @@ const BannerButton = styled.button`
   > span {
     display: flex;
     align-items: center;
+    white-space: nowrap;
   }
 `;
 
