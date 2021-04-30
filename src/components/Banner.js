@@ -1,17 +1,36 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import AddIcon from '@material-ui/icons/Add';
 
+import axios from '../axios';
+import requests from '../Requests';
+
 export default function Banner() {
+  const [movie, setMovie] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(requests.fetchNetflixOriginals);
+      setMovie(request.data.results[
+        Math.floor(Math.random() * request.data.results.length - 1)
+      ]);
+
+      return request;
+    }
+
+    fetchData();
+  }, []);
+
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + '...' : string;
   };
 
   return (
-    <BannerContainer>
+    <BannerContainer movieImg={movie.backdrop_path}>
       <BannerContent>
-        <BannerTitle>Movie Name</BannerTitle>
+        <BannerTitle>{movie?.title || movie?.name || movie?.original_name}</BannerTitle>
         <BannerButtons>
           <BannerButton active>
             <PlayArrowIcon />
@@ -23,9 +42,7 @@ export default function Banner() {
           </BannerButton>
         </BannerButtons>
         <BannerDescription>
-          {truncate(`This is a long text for testing.
-            This is a long text for testing. This is a long text for testing.
-            This is a long text for testing.This is a long text for testing.`, 150)}
+          {truncate(movie?.overview, 150)}
         </BannerDescription>
       </BannerContent>
       <BannerFadeBottom />
@@ -38,7 +55,7 @@ const BannerContainer = styled.div`
   color: var(--banner-color);
   padding: 0 3rem;
   background-size: cover;
-  background-image: url('https://i.imgur.com/e1hLQ2m.png');
+  background-image: url('${props => props.movieImg ? `https://image.tmdb.org/t/p/original/${props.movieImg}` : ''}');
   background-position: center center;
   height: 44.8rem;
   object-fit: contain;
@@ -84,17 +101,10 @@ const BannerButton = styled.button`
 `;
 
 const BannerTitle = styled.h1`
-  width: 34rem;
+  width: 100%;
   font-size: 3.3rem;
   font-weight: 800;
   padding-bottom: .3rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  @media screen and (max-width: 568px) {
-    width: 100%;
-  }
 `;
 
 const BannerDescription = styled.p`
