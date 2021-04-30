@@ -11,7 +11,7 @@
 :root {
   --nav-bg-color: #111;
   --banner-button-hover-color: black;
-  --banner-button-hover-bg-color: #e6e6e6;
+  --banner-button-hover-bg-color: white;
   --banner-color: white;
   --banner-fade-top-color: rgba(37, 37, 37, .61);
   --banner-fade-bottom-color: #111;
