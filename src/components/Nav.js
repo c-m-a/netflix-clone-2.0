@@ -40,6 +40,10 @@ const NavContainer = styled.nav`
   /* Animations */
   transition-timing-function: ease-in;
   transition: all .5s;
+
+  @media screen and (max-width: 510px) {
+    padding: 2.8rem 3rem;
+  }
 `;
 
 const ImgLogo = styled.img`

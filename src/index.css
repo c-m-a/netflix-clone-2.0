@@ -10,6 +10,11 @@
 
 :root {
   --nav-bg-color: #111;
+  --banner-button-hover-color: black;
+  --banner-button-hover-bg-color: #e6e6e6;
+  --banner-color: white;
+  --banner-fade-top-color: rgba(37, 37, 37, .61);
+  --banner-fade-bottom-color: #111;
 }
 
 html {
@@ -23,5 +28,4 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.6rem; /* 16px = 1.6 * root font-size */
 }
-
 
