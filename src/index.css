@@ -16,6 +16,7 @@
   --banner-color: white;
   --banner-fade-top-color: rgba(37, 37, 37, .61);
   --banner-fade-bottom-color: #111;
+  --row-color: white;
 }
 
 html {
