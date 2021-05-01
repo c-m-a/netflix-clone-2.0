@@ -13,7 +13,7 @@ export default function HomeScreen() {
       <Banner />
       <Row
         title="NETFLIX ORIGINALS"
-        fetch={requests.fetchNetflixOriginals}
+        fetchUrl={requests.fetchNetflixOriginals}
         isLargeRow
       />
 
@@ -28,4 +28,8 @@ export default function HomeScreen() {
   );
 }
 
-const HomeScreenContainer = styled.div``;
+const HomeScreenContainer = styled.div`
+  > Row {
+    padding: 2rem;
+  }
+`;
