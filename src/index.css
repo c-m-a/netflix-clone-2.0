@@ -9,6 +9,7 @@
 }
 
 :root {
+  --body-bg-color: black;
   --nav-bg-color: #111;
   --banner-button-hover-color: black;
   --banner-button-hover-bg-color: white;
@@ -27,5 +28,6 @@ html {
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.6rem; /* 16px = 1.6 * root font-size */
+  background-color: var(--body-bg-color);
 }
 
